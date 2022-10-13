@@ -1,0 +1,245 @@
+*{box-sizing: border-box;}
+
+    /* CSS Reset (removendo espaçamento padrão dos elementos indicados)*/
+body, h1, h2, p, figure{ margin: 0;padding: 0;}   
+
+/* (img) tornar a imagens flexiveis */
+img{ max-width: 100%;}  
+
+body{font-family: Arial;}
+
+/*  */
+a{text-decoration: none; color: gray;}
+
+header{ 
+    /* background-color: lightseagreen; */
+    text-align: center;
+    height: 100px;
+    padding-top: 10px;
+}
+
+h1, nav{text-transform: uppercase;}
+
+/* Regra para formatar o nome do site */
+
+h1 {font-size: 25px;} 
+
+h1 a{
+        
+        color: white;
+        background-color: black;
+        padding: 5px 15px;    
+        border-radius: 5px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-weight:normal ;
+}
+
+nav {
+margin-top: 20px;
+height: 40px;
+display: flex;
+justify-content: space-around;
+/* align (alinha os itens no centro da caixa) */
+align-items: center;    
+}
+
+nav a{
+    background-color: white;
+    color:black;
+    font-weight: bold;
+    padding: 10px;
+    /* Usamos a propriedades para transformar o tipo de elemento */
+    width: 33%;
+    transition: 500ms;
+}
+
+nav a:hover, nav a:focus{ background-color: rgb(80, 79, 79);}  
+
+/* Regras conteudo (articles) */
+
+.destaque{
+    background-image: url(../imagens/fundo-destaque.jpg);
+    height: 400px;
+    color: white;
+    text-align: center;
+
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Alinhamento todos os itens juntos, como um conteudo só(e assim, evitando espaços entre eles) */
+    align-content: center;
+
+}
+
+.destaque h2 {
+    font-size: 65px;
+    animation-name: aparecer;
+    animation-duration: 3s;
+}
+
+.destaque p {
+    font-size: 30px;
+    font-weight: bold;
+    animation-name: aparecer;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: backwards;
+}
+
+/* Regra de animação */
+
+@keyframes aparecer {from{opacity: 0;} to{opacity: 1;} }
+
+article h2{ text-align: center;padding: 20px;}
+
+article p{padding: 5px 10px;}
+
+figure{padding: 0 10px;
+text-align: center;}
+
+.historia {
+    background-image: url(../imagens/fundo-madeira.jpg);
+    background-attachment: fixed;
+    color: white;
+    text-shadow: black 1px 1px 3px;
+    text-align: center;
+}
+
+/* .historia iframe, localizacao iframe {width: 100%;max-width: 600px;}  */
+
+.historia iframe{width: 100%;max-width: 600px;}
+
+.localizacao{text-align: center;}
+
+.localizacao iframe{width: 100%;}
+
+footer {
+    height: 150px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* não esquecer de incluir na classe do html */
+.conteudo{
+    background-color:aqua;
+    border-radius: 10px;
+}
+
+table, td, th{
+
+    border: solid 2px black;
+    /* Border-collapse  Remove os espaçamentos entre as bordas */
+    border-collapse: collapse;
+}
+
+table{
+    margin: auto;
+    width: 70%;
+}
+
+th, td { padding: 5px;}
+/* odd(ímpar) even(par) */
+tr:nth-child(odd){background-color: coral;}
+
+th{ 
+    background-color: black;
+    color: white;
+}
+
+/* Pseudo-classes: nth-child, first-child, last-child */
+td:first-child{text-transform: uppercase;}
+td:nth-child(2){color: red;}
+td:last-child{color: blue;}
+
+.redondo img {
+
+    border-radius: 100%;
+    transform: scale(0.8);
+    transition: 500ms;  
+    box-shadow: rgba(0, 0, 0, 0.603) 0 0 10px;
+    
+}
+
+.redondo img:hover {
+
+    transform: scale(1.1);
+  
+}
+
+form{
+    background-color: burlywood;
+    width: 80%;
+    margin: auto;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+#nome, #email, #nascimento, #assunto, #mensagem{
+
+    width: 100%;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.281) 0 0 3px;
+    height: 30px;
+}
+
+#mensagem{ height: auto;
+    resize: none;                   
+} 
+/* resize (não é recomendado tirar) */
+
+button{ border: none;
+        background-color: rgba(0, 0, 255, 0.247);
+        font-weight: bold;
+        padding: 7px; 
+        border-radius: 3px;       
+}
+
+
+
+/* Regras Condicionais usando Media Queries */
+
+@media screen and (min-width:530px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+    }
+
+    h1 {
+        margin-left: 2vw;
+    }
+
+    nav {
+        margin-right: 2vw;
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width:800px){
+
+    h1 {font-size: 30px;}
+    header {height: 100px;}
+    nav{width: 70%;}
+    nav a {padding: 20px;}
+    .destaque {height: 550px;}
+    p{font-size: 20px;}   
+    
+}
+
+@media screen and (min-width: 1000px) {
+
+    .limitador{
+        max-width: 1000px;
+        margin: auto;
+
+    }
+}
